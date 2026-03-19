@@ -1,0 +1,204 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg-dark: #0d0d12;
+  --bg-panel: #16161d;
+  --border: #2a2a36;
+  --accent: #00d4aa;
+  --accent-dim: #00a884;
+  --text: #e8e8ed;
+  --text-muted: #6b6b7a;
+  --glow: rgba(0, 212, 170, 0.4);
+}
+
+body {
+  min-height: 100vh;
+  background: var(--bg-dark);
+  background-image:
+    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(0, 212, 170, 0.08), transparent),
+    linear-gradient(180deg, var(--bg-dark) 0%, #12121a 100%);
+  color: var(--text);
+  font-family: 'JetBrains Mono', monospace;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.game-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.header {
+  text-align: center;
+}
+
+.header h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  letter-spacing: 0.4em;
+  color: var(--accent);
+  text-shadow: 0 0 20px var(--glow);
+  margin-bottom: 0.75rem;
+}
+
+.scores {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+}
+
+.score-row {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.score-row .label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--text-muted);
+}
+
+.score-row span:last-child {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.game-area {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+}
+
+.next-panel {
+  background: var(--bg-panel);
+  border: 2px solid var(--border);
+  border-radius: 8px;
+  padding: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.panel-label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--text-muted);
+}
+
+#nextCanvas {
+  display: block;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 4px;
+}
+
+.board-container {
+  position: relative;
+  background: var(--bg-panel);
+  border: 3px solid var(--border);
+  border-radius: 8px;
+  padding: 8px;
+  box-shadow:
+    0 0 0 1px rgba(0, 212, 170, 0.1),
+    inset 0 0 60px rgba(0, 0, 0, 0.4);
+}
+
+#gameCanvas {
+  display: block;
+  background: #0a0a0e;
+  border-radius: 4px;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(13, 13, 18, 0.92);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.overlay.hidden {
+  display: none;
+}
+
+.overlay-content {
+  text-align: center;
+}
+
+.overlay-content p {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  color: var(--text);
+}
+
+.overlay-content p.win {
+  color: var(--accent);
+}
+
+.btn {
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 0.75rem 2rem;
+  background: var(--accent);
+  color: var(--bg-dark);
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  letter-spacing: 0.1em;
+  transition: background 0.2s, transform 0.1s;
+}
+
+.btn:hover {
+  background: var(--accent-dim);
+  transform: scale(1.02);
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.controls-hint {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  text-align: center;
+  line-height: 1.6;
+}
+
+.controls-hint p {
+  margin: 0;
+}
+
+@media (max-width: 520px) {
+  .game-area {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .header h1 {
+    letter-spacing: 0.2em;
+    font-size: 1.75rem;
+  }
+
+  #gameCanvas {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+  }
+}

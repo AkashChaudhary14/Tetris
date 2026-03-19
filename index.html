@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tetris</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="game-wrapper">
+    <header class="header">
+      <h1>TETRIS</h1>
+      <div class="scores">
+        <div class="score-row">
+          <span class="label">Score</span>
+          <span id="score">0</span>
+        </div>
+        <div class="score-row">
+          <span class="label">Level</span>
+          <span id="level">1</span>
+        </div>
+        <div class="score-row">
+          <span class="label">Lines</span>
+          <span id="lines">0</span>
+        </div>
+      </div>
+    </header>
+
+    <main class="game-area">
+      <div class="next-panel">
+        <span class="panel-label">Next</span>
+        <canvas id="nextCanvas" width="120" height="120"></canvas>
+      </div>
+
+      <div class="board-container">
+        <canvas id="gameCanvas" width="300" height="600"></canvas>
+        <div id="overlay" class="overlay hidden">
+          <div class="overlay-content">
+            <p id="overlayMessage">Game Over</p>
+            <button id="startBtn" class="btn">Start Game</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="controls-hint">
+        <p>← → Move</p>
+        <p>↑ Rotate</p>
+        <p>↓ Soft drop</p>
+        <p>Space Hard drop</p>
+        <p>P Pause</p>
+      </div>
+    </main>
+  </div>
+  <script src="tetris.js"></script>
+</body>
+</html>
